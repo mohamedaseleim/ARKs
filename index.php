@@ -15,6 +15,6 @@
  *
  */
 
-require_once('ARKPubIdPlugin.php');
+require_once('ARKsPlugin.php');
 
 return new \APP\plugins\pubIds\ark\ARKPubIdPlugin();
