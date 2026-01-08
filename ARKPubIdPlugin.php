@@ -18,7 +18,7 @@ use APP\core\Application;
 use APP\plugins\pubIds\ark\classes\form\ARKSettingsForm;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\plugins\PubIdPlugin;
+use APP\plugins\PubIdPlugin;
 use PKP\form\Form;
 
 class ARKPubIdPlugin extends PubIdPlugin {
