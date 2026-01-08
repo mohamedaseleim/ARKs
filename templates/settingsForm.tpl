@@ -1,73 +1,147 @@
 {**
  * plugins/pubIds/ark/templates/settingsForm.tpl
  *
- * Copyright (c) 2021 Yasiel Pérez Vera
+ * Copyright (c) 2026 Mohamed Seleim
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * ARK plugin settings
- *
  *}
 
-<div id="description">{translate key="plugins.pubIds.ark.manager.settings.description"}</div>
+<div id="description" class="pkp_form_section">
+	<p>{translate key="plugins.pubIds.ark.manager.settings.description"}</p>
+</div>
 
-<script src="{$baseUrl}/plugins/pubIds/ark/js/ARKSettingsFormHandler.js"></script>
-<script>
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#arkSettingsForm').pkpHandler('$.pkp.plugins.pubIds.ark.js.ARKSettingsFormHandler');
-	{rdelim});
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		function togglePatternFields() {
+			var patternRadio = document.querySelector('input[name="arkSuffix"][value="pattern"]');
+			var patternFields = document.getElementById('arkSuffixPatternSettings');
+			
+			if (patternRadio && patternRadio.checked) {
+				patternFields.style.display = 'block';
+			} else {
+				patternFields.style.display = 'none';
+			}
+		}
+
+		var suffixRadios = document.querySelectorAll('input[name="arkSuffix"]');
+		suffixRadios.forEach(function(radio) {
+			radio.addEventListener('change', togglePatternFields);
+		});
+
+		togglePatternFields();
+	});
 </script>
+
 <form class="pkp_form" id="arkSettingsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="manage" category="pubIds" plugin=$pluginName verb="save"}">
 	{csrf}
 	{include file="common/formErrors.tpl"}
-	{fbvFormArea id="arkObjectsFormArea" title="plugins.pubIds.ark.manager.settings.arkObjects"}
+
+	<div class="pkp_form_section">
+		<div class="header">
+			<h3>{translate key="plugins.pubIds.ark.manager.settings.arkObjects"}</h3>
+		</div>
 		<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.explainARKs"}</p>
-		{fbvFormSection list="true"}
-			{fbvElement type="checkbox" label="plugins.pubIds.ark.manager.settings.enableIssueARK" id="enableIssueARK" maxlength="40" checked=$enableIssueARK|compare:true}
-			{fbvElement type="checkbox" label="plugins.pubIds.ark.manager.settings.enableSubmissionARK" id="enableSubmissionARK" maxlength="40" checked=$enableSubmissionARK|compare:true}
-			{fbvElement type="checkbox" label="plugins.pubIds.ark.manager.settings.enableRepresentationARK" id="enableRepresentationARK" maxlength="40" checked=$enableRepresentationARK|compare:true}
-		{/fbvFormSection}
-	{/fbvFormArea}
-	{fbvFormArea id="arkPrefixFormArea" title="plugins.pubIds.ark.manager.settings.arkPrefix"}
-		{fbvFormSection}
+		
+		<div class="pkp_form_field pkp_checkbox_input">
+			<input type="checkbox" name="enableIssueARK" id="enableIssueARK" value="1" {if $enableIssueARK}checked{/if}>
+			<label for="enableIssueARK">{translate key="plugins.pubIds.ark.manager.settings.enableIssueARK"}</label>
+		</div>
+		<div class="pkp_form_field pkp_checkbox_input">
+			<input type="checkbox" name="enableSubmissionARK" id="enableSubmissionARK" value="1" {if $enableSubmissionARK}checked{/if}>
+			<label for="enableSubmissionARK">{translate key="plugins.pubIds.ark.manager.settings.enableSubmissionARK"}</label>
+		</div>
+		<div class="pkp_form_field pkp_checkbox_input">
+			<input type="checkbox" name="enableRepresentationARK" id="enableRepresentationARK" value="1" {if $enableRepresentationARK}checked{/if}>
+			<label for="enableRepresentationARK">{translate key="plugins.pubIds.ark.manager.settings.enableRepresentationARK"}</label>
+		</div>
+	</div>
+
+	<div class="pkp_form_section">
+		<div class="header">
+			<h3>{translate key="plugins.pubIds.ark.manager.settings.arkPrefix"}</h3>
+		</div>
+		<div class="pkp_form_field pkp_text_input">
 			<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.arkPrefix.description"}</p>
-			{fbvElement type="text" id="arkPrefix" value=$arkPrefix required="true" label="plugins.pubIds.ark.manager.settings.arkPrefix" maxlength="40" size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
-	{/fbvFormArea}
-	{fbvFormArea id="arkSuffixFormArea" title="plugins.pubIds.ark.manager.settings.arkSuffix"}
+			<label class="label" for="arkPrefix">{translate key="plugins.pubIds.ark.manager.settings.arkPrefix"}</label>
+			<input type="text" name="arkPrefix" id="arkPrefix" value="{$arkPrefix|escape}" required class="pkp_form_control" size="40">
+		</div>
+	</div>
+
+	<div class="pkp_form_section">
+		<div class="header">
+			<h3>{translate key="plugins.pubIds.ark.manager.settings.arkSuffix"}</h3>
+		</div>
 		<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.arkSuffix.description"}</p>
-		{fbvFormSection list="true"}
-			{if !in_array($arkSuffix, array("pattern", "customId"))}
-				{assign var="checked" value=true}
-			{else}
-				{assign var="checked" value=false}
-			{/if}
-			{fbvElement type="radio" id="arkSuffixDefault" name="arkSuffix" value="default" label="plugins.pubIds.ark.manager.settings.arkSuffixDefault" checked=$checked}
-			<span class="instruct">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"}</span>
-		{/fbvFormSection}
-		{fbvFormSection list="true"}
-			{fbvElement type="radio" id="arkSuffixCustomId" name="arkSuffix" value="customId" label="plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier" checked=$arkSuffix|compare:"customId"}
-		{/fbvFormSection}
-		{fbvFormSection list="true"}
-			{fbvElement type="radio" id="arkSuffixPattern" name="arkSuffix" value="pattern" label="plugins.pubIds.ark.manager.settings.arkSuffixPattern" checked=$arkSuffix|compare:"pattern"}
-			<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.example"}</p>
-			{fbvElement type="text" label="plugins.pubIds.ark.manager.settings.arkSuffixPattern.issues" id="arkIssueSuffixPattern" value=$arkIssueSuffixPattern maxlength="40" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions" id="arkSubmissionSuffixPattern" value=$arkSubmissionSuffixPattern maxlength="40" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations" id="arkRepresentationSuffixPattern" value=$arkRepresentationSuffixPattern maxlength="40" inline=true size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
-	{/fbvFormArea}
-	{fbvFormArea id="arkResolverFormArea" title="plugins.pubIds.ark.manager.settings.arkResolver"}
-		{fbvFormSection}
+
+		<div class="pkp_form_field pkp_radio_input">
+			<input type="radio" name="arkSuffix" id="arkSuffixDefault" value="default" {if !in_array($arkSuffix, array("pattern", "customId"))}checked{/if}>
+			<label for="arkSuffixDefault">
+				{translate key="plugins.pubIds.ark.manager.settings.arkSuffixDefault"}
+			</label>
+			<div class="description">
+				{translate key="plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"}
+			</div>
+		</div>
+
+		<div class="pkp_form_field pkp_radio_input">
+			<input type="radio" name="arkSuffix" id="arkSuffixCustomId" value="customId" {if $arkSuffix == "customId"}checked{/if}>
+			<label for="arkSuffixCustomId">
+				{translate key="plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier"}
+			</label>
+		</div>
+
+		<div class="pkp_form_field pkp_radio_input">
+			<input type="radio" name="arkSuffix" id="arkSuffixPattern" value="pattern" {if $arkSuffix == "pattern"}checked{/if}>
+			<label for="arkSuffixPattern">
+				{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern"}
+			</label>
+			<div class="description">
+				{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.example"}
+			</div>
+		</div>
+
+		<div id="arkSuffixPatternSettings" style="display:none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #ddd;">
+			<div class="pkp_form_field pkp_text_input">
+				<label class="label" for="arkIssueSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.issues"}</label>
+				<input type="text" name="arkIssueSuffixPattern" id="arkIssueSuffixPattern" value="{$arkIssueSuffixPattern|escape}" class="pkp_form_control">
+			</div>
+			<div class="pkp_form_field pkp_text_input">
+				<label class="label" for="arkSubmissionSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions"}</label>
+				<input type="text" name="arkSubmissionSuffixPattern" id="arkSubmissionSuffixPattern" value="{$arkSubmissionSuffixPattern|escape}" class="pkp_form_control">
+			</div>
+			<div class="pkp_form_field pkp_text_input">
+				<label class="label" for="arkRepresentationSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations"}</label>
+				<input type="text" name="arkRepresentationSuffixPattern" id="arkRepresentationSuffixPattern" value="{$arkRepresentationSuffixPattern|escape}" class="pkp_form_control">
+			</div>
+		</div>
+	</div>
+
+	<div class="pkp_form_section">
+		<div class="header">
+			<h3>{translate key="plugins.pubIds.ark.manager.settings.arkResolver"}</h3>
+		</div>
+		<div class="pkp_form_field pkp_text_input">
 			<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.arkResolver.description"}</p>
-			{fbvElement type="text" id="arkResolver" value=$arkResolver required="true" label="plugins.pubIds.ark.manager.settings.arkResolver"}
-		{/fbvFormSection}
-	{/fbvFormArea}
-	{fbvFormArea id="arkReassignFormArea" title="plugins.pubIds.ark.manager.settings.arkReassign"}
-		{fbvFormSection}
-			<div class="instruct">{translate key="plugins.pubIds.ark.manager.settings.arkReassign.description"}</div>
+			<label class="label" for="arkResolver">{translate key="plugins.pubIds.ark.manager.settings.arkResolver"}</label>
+			<input type="text" name="arkResolver" id="arkResolver" value="{$arkResolver|escape}" required class="pkp_form_control">
+		</div>
+	</div>
+
+	<div class="pkp_form_section">
+		<div class="header">
+			<h3>{translate key="plugins.pubIds.ark.manager.settings.arkReassign"}</h3>
+		</div>
+		<div class="pkp_form_field">
+			<p class="pkp_help">{translate key="plugins.pubIds.ark.manager.settings.arkReassign.description"}</p>
 			{include file="linkAction/linkAction.tpl" action=$clearPubIdsLinkAction contextId="arkSettingsForm"}
-		{/fbvFormSection}
-	{/fbvFormArea}
-	{fbvFormButtons submitText="common.save"}
+		</div>
+	</div>
+
+	<div class="pkp_form_buttons">
+		<button class="pkp_button pkp_button_primary" type="submit">{translate key="common.save"}</button>
+		<button class="pkp_button" type="button" id="cancelFormButton" onclick="document.location.reload()">{translate key="common.cancel"}</button>
+	</div>
 </form>
+
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
