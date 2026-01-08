@@ -19,6 +19,7 @@ use APP\plugins\pubIds\ark\classes\form\ARKSettingsForm;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\plugins\PubIdPlugin;
+use PKP\form\Form;
 
 class ARKPubIdPlugin extends PubIdPlugin {
 
@@ -28,14 +29,14 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc Plugin::getDisplayName()
      */
-    function getDisplayName() {
+    public function getDisplayName(): string {
         return __('plugins.pubIds.ark.displayName');
     }
 
     /**
      * @copydoc Plugin::getDescription()
      */
-    function getDescription() {
+    public function getDescription(): string {
         return __('plugins.pubIds.ark.description');
     }
 
@@ -46,36 +47,35 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc PKPPubIdPlugin::constructPubId()
      */
-    function constructPubId($pubIdPrefix, $pubIdSuffix, $contextId) {
-        $ark = $pubIdPrefix .'/'. $pubIdSuffix;
-        return $ark;
+    public function constructPubId($pubIdPrefix, $pubIdSuffix, $contextId): string {
+        return $pubIdPrefix . '/' . $pubIdSuffix;
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getPubIdType()
      */
-    function getPubIdType() {
+    public function getPubIdType(): string {
         return 'ark';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getPubIdDisplayType()
      */
-    function getPubIdDisplayType() {
+    public function getPubIdDisplayType(): string {
         return 'ARK';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getPubIdFullName()
      */
-    function getPubIdFullName() {
+    public function getPubIdFullName(): string {
         return 'Archival Resource Key';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getResolvingURL()
      */
-    function getResolvingURL($contextId, $pubId) {
+    public function getResolvingURL($contextId, $pubId): string {
         $resolverURL = $this->getSetting($contextId, 'arkResolver');
         return $resolverURL . $pubId;
     }
@@ -83,66 +83,66 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc PKPPubIdPlugin::getPubIdMetadataFile()
      */
-    function getPubIdMetadataFile() {
+    public function getPubIdMetadataFile(): string {
         return $this->getTemplateResource('arkSuffixEdit.tpl');
     }
 
     /**
      * @copydoc PKPPubIdPlugin::addJavaScript()
      */
-    function addJavaScript($request, $templateMgr) {
+    public function addJavaScript($request, $templateMgr): void {
         // Implementation left empty as per original code
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getPubIdAssignFile()
      */
-    function getPubIdAssignFile() {
+    public function getPubIdAssignFile(): string {
         return $this->getTemplateResource('arkAssign.tpl');
     }
 
     /**
      * @copydoc PKPPubIdPlugin::instantiateSettingsForm()
      */
-    function instantiateSettingsForm($contextId) {
+    public function instantiateSettingsForm($contextId): Form {
         return new ARKSettingsForm($this, $contextId);
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getFormFieldNames()
      */
-    function getFormFieldNames() {
+    public function getFormFieldNames(): array {
         return array('arkSuffix');
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getAssignFormFieldName()
      */
-    function getAssignFormFieldName() {
+    public function getAssignFormFieldName(): string {
         return 'assignARK';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getPrefixFieldName()
      */
-    function getPrefixFieldName() {
+    public function getPrefixFieldName(): string {
         return 'arkPrefix';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getSuffixFieldName()
      */
-    function getSuffixFieldName() {
+    public function getSuffixFieldName(): string {
         return 'arkSuffix';
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getLinkActions()
      */
-    function getLinkActions($pubObject) {
+    public function getLinkActions($pubObject): array {
         $linkActions = array();
         
-        $request = Application::get()->getRequest(); // تحديث طريقة استدعاء الـ Request
+        $request = Application::get()->getRequest();
         $userVars = $request->getUserVars();
         $userVars['pubIdPlugIn'] = get_class($this);
         
@@ -161,7 +161,8 @@ class ARKPubIdPlugin extends PubIdPlugin {
             __('plugins.pubIds.ark.editor.clearObjectsARK')
         );
 
-        if (is_a($pubObject, 'APP\issue\Issue')) { 
+        if (is_a($pubObject, 'APP\issue\Issue')) {
+            // Clear issue objects pub ids
             $linkActions['clearIssueObjectsPubIdsLinkActionARK'] = new LinkAction(
                 'clearObjectsPubIds',
                 new RemoteActionConfirmationModal(
@@ -183,7 +184,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc PKPPubIdPlugin::getSuffixPatternsFieldName()
      */
-    function getSuffixPatternsFieldNames() {
+    public function getSuffixPatternsFieldNames(): array {
         return array(
             'Issue' => 'arkIssueSuffixPattern',
             'Submission' => 'arkSubmissionSuffixPattern',
@@ -194,21 +195,21 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc PKPPubIdPlugin::getDAOFieldNames()
      */
-    function getDAOFieldNames() {
+    public function getDAOFieldNames(): array {
         return array('pub-id::ark');
     }
 
     /**
      * @copydoc PKPPubIdPlugin::isObjectTypeEnabled()
      */
-    function isObjectTypeEnabled($pubObjectType, $contextId) {
+    public function isObjectTypeEnabled($pubObjectType, $contextId): bool {
         return (boolean) $this->getSetting($contextId, "enable{$pubObjectType}ARK");
     }
 
     /**
      * @copydoc PKPPubIdPlugin::getNotUniqueErrorMsg()
      */
-    function getNotUniqueErrorMsg() {
+    public function getNotUniqueErrorMsg(): string {
         return __('plugins.pubIds.ark.editor.arkSuffixCustomIdentifierNotUnique');
     }
 }
