@@ -23,6 +23,17 @@ use PKP\form\Form;
 
 class ARKPubIdPlugin extends PubIdPlugin {
 
+    /**
+     * @copydoc Plugin::register()
+     */
+    public function register(string $category, string $path, string $mainContextId = null): bool {
+        $success = parent::register($category, $path, $mainContextId);
+        if ($success && $this->getEnabled($mainContextId)) {
+            // أي أكواد تهيئة إضافية توضع هنا
+        }
+        return $success;
+    }
+
     //
     // Implement template methods from Plugin.
     //
