@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<locale name="ar_AR" full_name="العربية">
+	<message key="plugins.pubIds.ark.displayName">مُعرف الموارد الأرشيفية (ARK)</message>
+	<message key="plugins.pubIds.ark.description">تمكن هذه الإضافة من تعيين مفاتيح الموارد الأرشيفية (ARK) للأعداد، والمقالات، والملفات الطباعية (Galleys) في نظام المجلات المفتوحة (OJS).</message>
+
+	<message key="plugins.pubIds.ark.manager.settings.description">يرجى تكوين إعدادات إضافة ARK لتتمكن من إدارة واستخدام معرفات ARK في OJS:</message>
+
+	<message key="plugins.pubIds.ark.manager.settings.arkObjects">محتوى المجلة</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkObjectsRequired">يرجى اختيار الكائنات التي يجب تعيين معرفات ARK لها.</message>
+	<message key="plugins.pubIds.ark.manager.settings.explainARKs">يرجى تحديد كائنات النشر التي سيتم تعيين مفتاح الموارد الأرشيفية (ARK) لها:</message>
+	<message key="plugins.pubIds.ark.manager.settings.enableIssueARK">الأعداد</message>
+	<message key="plugins.pubIds.ark.manager.settings.enableSubmissionARK">المقالات</message>
+	<message key="plugins.pubIds.ark.manager.settings.enableRepresentationARK">الملفات الطباعية (Galleys)</message>
+
+	<message key="plugins.pubIds.ark.manager.settings.arkPrefix">بادئة ARK</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkPrefix.description"><![CDATA[بادئة ARK هي الجزء الثابت الذي لا يتغير من المعرف (مثال: "ark:/00000").]]></message>
+	<message key="plugins.pubIds.ark.manager.settings.form.arkPrefixPattern"><![CDATA[يجب أن يكون نمط بادئة ARK بالشكل "ark:/"&lt;NAAN&gt;.]]></message>
+
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffix">لاحقة ARK</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffix.description">يمكن أن تتخذ لاحقة ARK أي شكل، ولكن يجب أن تكون فريدة بين جميع كائنات النشر التي تحمل نفس بادئة ARK:</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern">استخدم النمط المدخل أدناه لتوليد لواحق ARK. استخدم %j للأحرف الأولى للمجلة، %v لرقم المجلد، %i لرقم العدد، %s لمعرف العدد (Issue ID)، %Y للسنة، %a لمعرف المقالة في OJS، %g لمعرف الملف الطباعي، %f لمعرف الملف، %p لرقم الصفحة، و %x لـ "المعرف المخصص".</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.example">على سبيل المثال، النمط vol%viss%ipp%p قد ينشئ لاحقة ARK بالشكل "vol3iss2pp230".</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.issues">للأعداد</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions">للمقالات</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations">للملفات الطباعية</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkIssueSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للأعداد.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSubmissionSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للمقالات.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للملفات الطباعية.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixDefault">استخدام الأنماط الافتراضية.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"><![CDATA[%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.g%g للملفات الطباعية.]]></message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier">إدخال لاحقة ARK فردية لكل عنصر منشور. ستجد حقل إدخال ARK إضافي في صفحة البيانات الوصفية لكل عنصر.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkResolver">رابط المُحلل (Resolver URL)</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkResolver.description">(مثال: https://n2t.net/)</message>
+	<message key="plugins.pubIds.ark.manager.settings.form.arkResolverRequired">يرجى إدخال رابط المُحلل.</message>
+
+	<message key="plugins.pubIds.ark.manager.settings.arkReassign">إعادة تعيين معرفات ARK</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkReassign.description">إذا قمت بتغيير تكوين ARK، فلن تتأثر معرفات ARK التي تم تعيينها مسبقًا. بمجرد حفظ تكوين ARK، استخدم هذا الزر لمسح جميع معرفات ARK الموجودة بحيث تسري الإعدادات الجديدة على الكائنات الموجودة.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkReassign.confirm">هل أنت متأكد أنك تريد حذف جميع معرفات ARK الموجودة؟</message>
+
+	<message key="plugins.pubIds.ark.editor.ark">ARK</message>
+	<message key="plugins.pubIds.ark.editor.arkObjectTypeIssue">العدد</message>
+	<message key="plugins.pubIds.ark.editor.arkObjectTypeSubmission">المقالة</message>
+	<message key="plugins.pubIds.ark.editor.arkObjectTypeRepresentation">الملف الطباعي</message>
+	<message key="plugins.pubIds.ark.editor.customSuffixMissing">لا يمكن تعيين ARK لأن اللاحقة المخصصة مفقودة.</message>
+	<message key="plugins.pubIds.ark.editor.patternNotResolved">لا يمكن تعيين ARK لأنه يحتوي على نمط غير محلول.</message>
+	<message key="plugins.pubIds.ark.editor.canBeAssigned">ما تراه هو معاينة لـ ARK. حدد مربع الاختيار واحفظ النموذج لتعيين ARK.</message>
+	<message key="plugins.pubIds.ark.editor.assigned">تم تعيين ARK لهذا {$pubObjectType}.</message>
+	<message key="plugins.pubIds.ark.editor.arkSuffixCustomIdentifierNotUnique">لاحقة ARK المعطاة مستخدمة بالفعل لعنصر منشور آخر. يرجى إدخال لاحقة ARK فريدة لكل عنصر.</message>
+	<message key="plugins.pubIds.ark.editor.clearObjectsARK">مسح ARK</message>
+	<message key="plugins.pubIds.ark.editor.clearObjectsARK.confirm">هل أنت متأكد أنك تريد حذف ARK الموجود؟</message>
+	<message key="plugins.pubIds.ark.editor.clearIssueObjectsARK">مسح معرفات ARK لمحتويات العدد</message>
+	<message key="plugins.pubIds.ark.editor.clearIssueObjectsARK.confirm">هل أنت متأكد أنك تريد حذف معرفات ARK لكائنات العدد الموجودة؟</message>
+	<message key="plugins.pubIds.ark.editor.clearIssueObjectsARK.description">استخدم الخيار التالي لمسح معرفات ARK لجميع الكائنات (المقالات والملفات الطباعية) المجدولة حاليًا لهذا العدد.</message>
+
+	<message key="plugins.pubIds.ark.editor.assignARK">تعيين ARK {$pubId} لهذا {$pubObjectType}</message>
+	<message key="plugins.pubIds.ark.editor.assignARK.emptySuffix">لا يمكن تعيين ARK لأن اللاحقة المخصصة مفقودة.</message>
+	<message key="plugins.pubIds.ark.editor.assignARK.pattern">لا يمكن تعيين ARK {$pubId} لأنه يحتوي على نمط غير محلول.</message>
+	<message key="plugins.pubIds.ark.editor.assignARK.assigned">تم تعيين ARK {$pubId}.</message>
+
+</locale>
