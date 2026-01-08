@@ -3,7 +3,7 @@
 /**
  * @file plugins/pubIds/ark/ARKPubIdPlugin.php
  *
- * Copyright (c) 2025 Mohamed Seleim
+ * Copyright (c) 2026 Mohamed Seleim
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ARKPubIdPlugin
