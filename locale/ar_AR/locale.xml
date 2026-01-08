@@ -40,6 +40,7 @@
 	<message key="plugins.pubIds.ark.manager.settings.arkReassign.confirm">هل أنت متأكد أنك تريد حذف جميع معرفات ARK الموجودة؟</message>
 
 	<message key="plugins.pubIds.ark.editor.ark">ARK</message>
+	<message key="plugins.pubIds.ark.editor.arkObjectType">نوع الكائن: </message>
 	<message key="plugins.pubIds.ark.editor.arkObjectTypeIssue">العدد</message>
 	<message key="plugins.pubIds.ark.editor.arkObjectTypeSubmission">المقالة</message>
 	<message key="plugins.pubIds.ark.editor.arkObjectTypeRepresentation">الملف الطباعي</message>
@@ -54,9 +55,8 @@
 	<message key="plugins.pubIds.ark.editor.clearIssueObjectsARK.confirm">هل أنت متأكد أنك تريد حذف معرفات ARK لكائنات العدد الموجودة؟</message>
 	<message key="plugins.pubIds.ark.editor.clearIssueObjectsARK.description">استخدم الخيار التالي لمسح معرفات ARK لجميع الكائنات (المقالات والملفات الطباعية) المجدولة حاليًا لهذا العدد.</message>
 
-	<message key="plugins.pubIds.ark.editor.assignARK">تعيين ARK {$pubId} لهذا {$pubObjectType}</message>
+	<message key="plugins.pubIds.ark.editor.assignARK">تعيين المعرف ARK {$pubId} لهذا {$pubObjectType}</message>
 	<message key="plugins.pubIds.ark.editor.assignARK.emptySuffix">لا يمكن تعيين ARK لأن اللاحقة المخصصة مفقودة.</message>
 	<message key="plugins.pubIds.ark.editor.assignARK.pattern">لا يمكن تعيين ARK {$pubId} لأنه يحتوي على نمط غير محلول.</message>
 	<message key="plugins.pubIds.ark.editor.assignARK.assigned">تم تعيين ARK {$pubId}.</message>
-
 </locale>
