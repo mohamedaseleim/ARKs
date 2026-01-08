@@ -55,4 +55,5 @@ Original Author: Yasiel Pérez Vera
 OJS 3.5 Upgrade & Refactoring: Mohamed Seleim
 
 📄 License
+
 Distributed under the GNU GPL v2. See the file docs/COPYING for full terms.
