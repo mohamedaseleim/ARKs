@@ -49,6 +49,7 @@ Suffix Pattern: e.g., %j.v%vi%i.%a (Journal.Volume.Issue.ArticleID).
 Resolver: The URL that resolves the ARK (e.g., https://n2t.net/).
 
 🛠️ Credits
+
 Original Author: Yasiel Pérez Vera
 
 OJS 3.5 Upgrade & Refactoring: Mohamed Seleim
