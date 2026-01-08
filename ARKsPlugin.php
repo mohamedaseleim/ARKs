@@ -105,8 +105,6 @@ class ARKPubIdPlugin extends PubIdPlugin {
      * @copydoc PKPPubIdPlugin::instantiateSettingsForm()
      */
     function instantiateSettingsForm($contextId) {
-        // في الإصدارات الحديثة، نستخدم الـ namespace مباشرة بدلاً من import
-        // سنحتاج للتأكد من تحديث ملف ARKSettingsForm لاحقاً ليحمل الـ namespace الصحيح
         return new ARKSettingsForm($this, $contextId);
     }
 
@@ -144,7 +142,6 @@ class ARKPubIdPlugin extends PubIdPlugin {
     function getLinkActions($pubObject) {
         $linkActions = array();
         
-        // تم استبدال import بـ use statements في الأعلى
         $request = Application::get()->getRequest(); // تحديث طريقة استدعاء الـ Request
         $userVars = $request->getUserVars();
         $userVars['pubIdPlugIn'] = get_class($this);
@@ -164,8 +161,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
             __('plugins.pubIds.ark.editor.clearObjectsARK')
         );
 
-        if (is_a($pubObject, 'APP\issue\Issue')) { // تحديث المسار للتحقق من الكائن Issue
-            // Clear issue objects pub ids
+        if (is_a($pubObject, 'APP\issue\Issue')) { 
             $linkActions['clearIssueObjectsPubIdsLinkActionARK'] = new LinkAction(
                 'clearObjectsPubIds',
                 new RemoteActionConfirmationModal(
@@ -206,7 +202,6 @@ class ARKPubIdPlugin extends PubIdPlugin {
      * @copydoc PKPPubIdPlugin::isObjectTypeEnabled()
      */
     function isObjectTypeEnabled($pubObjectType, $contextId) {
-        // تحديث صيغة المتغيرات لتوافق PHP 8.2 (Deprecated syntax fixed)
         return (boolean) $this->getSetting($contextId, "enable{$pubObjectType}ARK");
     }
 
