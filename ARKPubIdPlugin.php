@@ -26,10 +26,10 @@ class ARKPubIdPlugin extends PubIdPlugin {
     /**
      * @copydoc Plugin::register()
      */
-    public function register(string $category, string $path, string $mainContextId = null): bool {
+    public function register($category, $path, $mainContextId = null) {
         $success = parent::register($category, $path, $mainContextId);
         if ($success && $this->getEnabled($mainContextId)) {
-            // أي أكواد تهيئة إضافية توضع هنا
+            // Initialization code
         }
         return $success;
     }
