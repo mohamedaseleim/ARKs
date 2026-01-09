@@ -1,0 +1,212 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OJS 3.5 ARK Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-09 00:00+0000\n"
+"PO-Revision-Date: 2026-01-09 00:00+0000\n"
+"Last-Translator: Mohamed Seleim\n"
+"Language-Team: Arabic <mohamedaseleim@gmail.com>\n"
+"Language: ar_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Manual Conversion\n"
+
+msgid "plugins.pubIds.ark.displayName"
+msgstr "معرف ARK"
+
+msgid "plugins.pubIds.ark.description"
+msgstr "تتيح هذه الإضافة تعيين معرفات الموارد الأرشيفية (ARK) للأعداد، والمقالات، والملفات الطباعية (Galleys) في نظام OJS."
+
+msgid "plugins.pubIds.ark.manager.settings.description"
+msgstr "يرجى إعداد إضافة ARK لتتمكن من إدارة واستخدام معرفات ARK في المجلة:"
+
+msgid "plugins.pubIds.ark.manager.settings.arkObjects"
+msgstr "محتوى المجلة"
+
+msgid "plugins.pubIds.ark.manager.settings.arkObjectsRequired"
+msgstr "يرجى اختيار الكائنات التي يجب تعيين معرفات ARK لها."
+
+msgid "plugins.pubIds.ark.manager.settings.explainARKs"
+msgstr "يرجى تحديد كائنات النشر التي سيتم تعيين معرف الموارد الأرشيفية (ARK) لها:"
+
+msgid "plugins.pubIds.ark.manager.settings.enableIssueARK"
+msgstr "الأعداد"
+
+msgid "plugins.pubIds.ark.manager.settings.enableSubmissionARK"
+msgstr "المقالات"
+
+msgid "plugins.pubIds.ark.manager.settings.enableRepresentationARK"
+msgstr "النسخ الطباعية (Galleys)"
+
+msgid "plugins.pubIds.ark.manager.settings.arkPrefix"
+msgstr "بادئة ARK (Prefix)"
+
+msgid "plugins.pubIds.ark.manager.settings.arkPrefix.description"
+msgstr "بادئة ARK هي الجزء الثابت الذي لا يتغير (مثلاً \"ark:/12345\")."
+
+msgid "plugins.pubIds.ark.manager.settings.form.arkPrefixPattern"
+msgstr "يجب أن يكون نمط البادئة بالشكل التالي: \"ark:/\"&lt;NAAN&gt;."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffix"
+msgstr "لاحقة ARK (Suffix)"
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffix.description"
+msgstr "يمكن أن تأخذ لاحقة ARK أي شكل، ولكن يجب أن تكون فريدة بين جميع كائنات النشر التي تحمل نفس البادئة:"
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern"
+msgstr "استخدم النمط أدناه لتوليد لواحق ARK تلقائياً. استخدم %j للأحرف الأولى من المجلة، %v لرقم المجلد، %i لرقم العدد، %Y للسنة، %a لمعرف المقالة، %g لمعرف الطباعة، %f لمعرف الملف، %p لرقم الصفحة، و %x لـ \"المعرف المخصص\"."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.example"
+msgstr "على سبيل المثال، النمط vol%viss%ipp%p قد ينتج اللاحقة \"vol3iss2pp230\"."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.issues"
+msgstr "للأعداد"
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions"
+msgstr "للمقالات"
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations"
+msgstr "للنسخ الطباعية"
+
+msgid "plugins.pubIds.ark.manager.settings.arkIssueSuffixPatternRequired"
+msgstr "يرجى إدخال نمط لاحقة ARK للأعداد."
+
+msgid "plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired"
+msgstr "يرجى إدخال نمط لاحقة ARK للمقالات."
+
+msgid "plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired"
+msgstr "يرجى إدخال نمط لاحقة ARK للنسخ الطباعية."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault"
+msgstr "استخدام الأنماط الافتراضية."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"
+msgstr "%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.g%g للنسخ الطباعية."
+
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier"
+msgstr "أدخل لاحقة ARK مخصصة لكل عنصر منشور يدوياً. ستجد حقلاً إضافياً لـ ARK في صفحة البيانات الوصفية لكل عنصر."
+
+msgid "plugins.pubIds.ark.manager.settings.checkNo"
+msgstr "حرف التحقق (Check Character)"
+
+msgid "plugins.pubIds.ark.manager.settings.checkNo.label"
+msgstr "سيتم حساب حرف التحقق تلقائياً وإضافته في النهاية كآخر خانة في معرف ARK."
+
+msgid "plugins.pubIds.ark.manager.settings.namespace"
+msgstr "رقم الهيئة (NAAN)"
+
+msgid "plugins.pubIds.ark.manager.settings.namespace.choose"
+msgstr "اختر"
+
+msgid "plugins.pubIds.ark.manager.settings.namespace.description"
+msgstr "رقم هيئة تعيين الأسماء (NAAN) المطلوب عادةً للتسجيل."
+
+msgid "plugins.pubIds.ark.manager.settings.arkResolver"
+msgstr "رابط الحل (Resolver URL)"
+
+msgid "plugins.pubIds.ark.manager.settings.arkResolver.description"
+msgstr "(مثال: https://n2t.net/)"
+
+msgid "plugins.pubIds.ark.manager.settings.form.arkResolverRequired"
+msgstr "يرجى إدخال رابط الحل (Resolver URL)."
+
+msgid "plugins.pubIds.ark.manager.settings.arkReassign"
+msgstr "إعادة تعيين ARK"
+
+msgid "plugins.pubIds.ark.manager.settings.arkReassign.description"
+msgstr "إذا قمت بتغيير إعدادات ARK، فلن تتأثر المعرفات التي تم تعيينها سابقاً. بمجرد حفظ الإعدادات الجديدة، استخدم هذا الزر لمسح جميع معرفات ARK الحالية ليتم تطبيق الإعدادات الجديدة على الكائنات الموجودة."
+
+msgid "plugins.pubIds.ark.manager.settings.arkReassign.confirm"
+msgstr "هل أنت متأكد من رغبتك في حذف جميع معرفات ARK الموجودة؟"
+
+msgid "plugins.pubIds.ark.editor.ark"
+msgstr "ARK"
+
+msgid "plugins.pubIds.ark.editor.arkObjectType"
+msgstr "نوع الكائن: "
+
+msgid "plugins.pubIds.ark.editor.arkObjectTypeIssue"
+msgstr "عدد"
+
+msgid "plugins.pubIds.ark.editor.arkObjectTypeSubmission"
+msgstr "مقالة"
+
+msgid "plugins.pubIds.ark.editor.arkObjectTypeRepresentation"
+msgstr "نسخة طباعية"
+
+msgid "plugins.pubIds.ark.editor.customSuffixMissing"
+msgstr "لا يمكن تعيين ARK لأن اللاحقة المخصصة مفقودة."
+
+msgid "plugins.pubIds.ark.editor.patternNotResolved"
+msgstr "لا يمكن تعيين ARK لأنه يحتوي على نمط غير محلول (Unresolved Pattern)."
+
+msgid "plugins.pubIds.ark.editor.canBeAssigned"
+msgstr "ما تراه هو معاينة لمعرف ARK. حدد مربع الاختيار واحفظ النموذج لتعيين المعرف."
+
+msgid "plugins.pubIds.ark.editor.assigned"
+msgstr "تم تعيين معرف ARK لهذا العنصر ({$pubObjectType})."
+
+msgid "plugins.pubIds.ark.editor.arkSuffixCustomIdentifierNotUnique"
+msgstr "لاحقة ARK المدخلة مستخدمة بالفعل لعنصر منشور آخر. يرجى إدخال لاحقة فريدة."
+
+msgid "plugins.pubIds.ark.editor.clearObjectsARK"
+msgstr "مسح"
+
+msgid "plugins.pubIds.ark.editor.clearObjectsARK.confirm"
+msgstr "هل أنت متأكد أنك تريد حذف معرف ARK الحالي؟"
+
+msgid "plugins.pubIds.ark.editor.clearIssueObjectsARK"
+msgstr "مسح معرفات ARK لكائنات العدد"
+
+msgid "plugins.pubIds.ark.editor.clearIssueObjectsARK.confirm"
+msgstr "هل أنت متأكد أنك تريد حذف معرفات ARK لكائنات هذا العدد؟"
+
+msgid "plugins.pubIds.ark.editor.clearIssueObjectsARK.description"
+msgstr "استخدم الخيار التالي لمسح معرفات ARK لجميع الكائنات (المقالات والنسخ الطباعية) المجدولة حالياً في هذا العدد."
+
+msgid "plugins.pubIds.ark.editor.addCheckNo"
+msgstr "إضافة حرف التحقق"
+
+msgid "plugins.pubIds.ark.editor.assignARK"
+msgstr "تعيين ARK {$pubId} لهذا الكائن ({$pubObjectType})"
+
+msgid "plugins.pubIds.ark.editor.assignARK.emptySuffix"
+msgstr "لا يمكن تعيين ARK لأن اللاحقة المخصصة مفقودة."
+
+msgid "plugins.pubIds.ark.editor.assignARK.pattern"
+msgstr "لا يمكن تعيين ARK {$pubId} لأنه يحتوي على نمط غير محلول."
+
+msgid "plugins.pubIds.ark.editor.assignARK.assigned"
+msgstr "تم تعيين المعرف ARK {$pubId} بنجاح."
+
+msgid "plugins.pubIds.ark.form.checkNoRequired"
+msgstr "حرف التحقق مفقود."
+
+msgid "plugins.pubIds.ark.editor.ark.description"
+msgstr "يجب أن يبدأ ARK بـ {$prefix}."
+
+msgid "plugins.pubIds.ark.editor.ark.assignArk"
+msgstr "تعيين"
+
+msgid "plugins.pubIds.ark.editor.missingIssue"
+msgstr "لا يمكنك إنشاء ARK حتى يتم تعيين هذا المنشور إلى عدد."
+
+msgid "plugins.pubIds.ark.editor.missingParts"
+msgstr "لا يمكنك إنشاء ARK لأن جزءاً أو أكثر من نمط ARK يفتقد للبيانات. قد تحتاج لتعيين المقالة لعدد، أو ضبط معرف الناشر، أو إدخال أرقام الصفحات."
+
+msgid "plugins.pubIds.ark.editor.missingPrefix"
+msgstr "يجب أن يبدأ ARK بـ {$arkPrefix}."
+
+msgid "plugins.pubIds.ark.editor.preview.publication"
+msgstr "سيكون معرف ARK لهذا المنشور: {$ark}."
+
+msgid "plugins.pubIds.ark.editor.preview.publication.none"
+msgstr "لم يتم تعيين ARK لهذا المنشور."
+
+msgid "plugins.pubIds.ark.editor.preview.galleys"
+msgstr "النسخة الطباعية: {$galleyLabel}"
+
+msgid "plugins.pubIds.ark.editor.preview.objects"
+msgstr "العنصر"
