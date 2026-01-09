@@ -5,7 +5,6 @@ msgstr ""
 "POT-Creation-Date: 2026-01-09 00:00+0000\n"
 "PO-Revision-Date: 2026-01-09 00:00+0000\n"
 "Last-Translator: Mohamed Seleim\n"
-"Language-Team: Arabic <mohamedaseleim@gmail.com>\n"
 "Language: ar_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,4 +208,5 @@ msgid "plugins.pubIds.ark.editor.preview.galleys"
 msgstr "النسخة الطباعية: {$galleyLabel}"
 
 msgid "plugins.pubIds.ark.editor.preview.objects"
+
 msgstr "العنصر"
