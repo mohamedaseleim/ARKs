@@ -36,6 +36,9 @@ msgstr "الأعداد"
 msgid "plugins.pubIds.ark.manager.settings.enableSubmissionARK"
 msgstr "المقالات"
 
+msgid "plugins.pubIds.ark.manager.settings.enablePublicationARK"
+msgstr "المنشورات"
+
 msgid "plugins.pubIds.ark.manager.settings.enableRepresentationARK"
 msgstr "النسخ الطباعية (Galleys)"
 
@@ -66,14 +69,20 @@ msgstr "للأعداد"
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions"
 msgstr "للمقالات"
 
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.publications"
+msgstr "للمنشورات"
+
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations"
 msgstr "للنسخ الطباعية"
 
 msgid "plugins.pubIds.ark.manager.settings.arkIssueSuffixPatternRequired"
 msgstr "يرجى إدخال نمط لاحقة ARK للأعداد."
 
-msgid "plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired"
+msgid "plugins.pubIds.ark.manager.settings.arkSubmissionSuffixPatternRequired"
 msgstr "يرجى إدخال نمط لاحقة ARK للمقالات."
+
+msgid "plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired"
+msgstr "يرجى إدخال نمط لاحقة ARK للمنشورات."
 
 msgid "plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired"
 msgstr "يرجى إدخال نمط لاحقة ARK للنسخ الطباعية."
@@ -82,7 +91,7 @@ msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault"
 msgstr "استخدام الأنماط الافتراضية."
 
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"
-msgstr "%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.g%g للنسخ الطباعية."
+msgstr "%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.p%p للمنشورات<br />%j.v%vi%i.%a.g%g للنسخ الطباعية."
 
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier"
 msgstr "أدخل لاحقة ARK مخصصة لكل عنصر منشور يدوياً. ستجد حقلاً إضافياً لـ ARK في صفحة البيانات الوصفية لكل عنصر."

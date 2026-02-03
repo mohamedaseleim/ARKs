@@ -52,6 +52,10 @@
 			<label for="enableSubmissionARK">{translate key="plugins.pubIds.ark.manager.settings.enableSubmissionARK"}</label>
 		</div>
 		<div class="pkp_form_field pkp_checkbox_input">
+			<input type="checkbox" name="enablePublicationARK" id="enablePublicationARK" value="1" {if $enablePublicationARK}checked{/if}>
+			<label for="enablePublicationARK">{translate key="plugins.pubIds.ark.manager.settings.enablePublicationARK"}</label>
+		</div>
+		<div class="pkp_form_field pkp_checkbox_input">
 			<input type="checkbox" name="enableRepresentationARK" id="enableRepresentationARK" value="1" {if $enableRepresentationARK}checked{/if}>
 			<label for="enableRepresentationARK">{translate key="plugins.pubIds.ark.manager.settings.enableRepresentationARK"}</label>
 		</div>
@@ -109,6 +113,10 @@
 			<div class="pkp_form_field pkp_text_input">
 				<label class="label" for="arkSubmissionSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions"}</label>
 				<input type="text" name="arkSubmissionSuffixPattern" id="arkSubmissionSuffixPattern" value="{$arkSubmissionSuffixPattern|escape}" class="pkp_form_control">
+			</div>
+			<div class="pkp_form_field pkp_text_input">
+				<label class="label" for="arkPublicationSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.publications"}</label>
+				<input type="text" name="arkPublicationSuffixPattern" id="arkPublicationSuffixPattern" value="{$arkPublicationSuffixPattern|escape}" class="pkp_form_control">
 			</div>
 			<div class="pkp_form_field pkp_text_input">
 				<label class="label" for="arkRepresentationSuffixPattern">{translate key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations"}</label>

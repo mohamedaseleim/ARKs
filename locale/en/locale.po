@@ -35,6 +35,9 @@ msgstr "Issues"
 msgid "plugins.pubIds.ark.manager.settings.enableSubmissionARK"
 msgstr "Articles"
 
+msgid "plugins.pubIds.ark.manager.settings.enablePublicationARK"
+msgstr "Publications"
+
 msgid "plugins.pubIds.ark.manager.settings.enableRepresentationARK"
 msgstr "Galleys"
 
@@ -65,6 +68,9 @@ msgstr "for issues"
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions"
 msgstr "for articles"
 
+msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.publications"
+msgstr "for publications"
+
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations"
 msgstr "for galleys"
 
@@ -74,6 +80,9 @@ msgstr "Please enter the ARK suffix pattern for issues."
 msgid "plugins.pubIds.ark.manager.settings.arkSubmissionSuffixPatternRequired"
 msgstr "Please enter the ARK suffix pattern for articles."
 
+msgid "plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired"
+msgstr "Please enter the ARK suffix pattern for publications."
+
 msgid "plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired"
 msgstr "Please enter the ARK suffix pattern for galleys."
 
@@ -81,7 +90,7 @@ msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault"
 msgstr "Use default patterns."
 
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"
-msgstr "%j.v%vi%i for issues<br />%j.v%vi%i.%a for articles<br />%j.v%vi%i.%a.g%g for galleys."
+msgstr "%j.v%vi%i for issues<br />%j.v%vi%i.%a for articles<br />%j.v%vi%i.%a.p%p for publications<br />%j.v%vi%i.%a.g%g for galleys."
 
 msgid "plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier"
 msgstr "Enter an individual ARK suffix for each published item. You'll find an additional ARK input field on each item's metadata page."

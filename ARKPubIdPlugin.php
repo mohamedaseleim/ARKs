@@ -199,6 +199,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
         return array(
             'Issue' => 'arkIssueSuffixPattern',
             'Submission' => 'arkSubmissionSuffixPattern',
+            'Publication' => 'arkPublicationSuffixPattern',
             'Representation' => 'arkRepresentationSuffixPattern',
         );
     }
@@ -222,5 +223,21 @@ class ARKPubIdPlugin extends PubIdPlugin {
      */
     public function getNotUniqueErrorMsg(): string {
         return __('plugins.pubIds.ark.editor.arkSuffixCustomIdentifierNotUnique');
+    }
+
+    /**
+     * @copydoc PKPPubIdPlugin::getPubObjectType()
+     */
+    public function getPubObjectType($pubObject): string {
+        if (is_a($pubObject, 'APP\issue\Issue')) {
+            return 'Issue';
+        } elseif (is_a($pubObject, 'APP\submission\Submission')) {
+            return 'Submission';
+        } elseif (is_a($pubObject, 'APP\publication\Publication')) {
+            return 'Publication';
+        } elseif (is_a($pubObject, 'APP\submission\Representation')) {
+            return 'Representation';
+        }
+        return '';
     }
 }

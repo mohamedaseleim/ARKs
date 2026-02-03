@@ -67,7 +67,7 @@ class ARKSettingsForm extends Form {
 
         $form = $this;
         $this->addCheck(new FormValidatorCustom($this, 'arkObjects', 'required', 'plugins.pubIds.ark.manager.settings.arkObjectsRequired', function($enableIssueARK) use ($form) {
-            return $form->getData('enableIssueARK') || $form->getData('enableSubmissionARK') || $form->getData('enableRepresentationARK');
+            return $form->getData('enableIssueARK') || $form->getData('enableSubmissionARK') || $form->getData('enablePublicationARK') || $form->getData('enableRepresentationARK');
         }));
         $this->addCheck(new FormValidatorRegExp($this, 'arkPrefix', 'required', 'plugins.pubIds.ark.manager.settings.form.arkPrefixPattern', '/^ark:\/[0123456789bcdfghjkmnpqrstvwxz]{1,16}$/'));
         $this->addCheck(new FormValidatorCustom($this, 'arkIssueSuffixPattern', 'required', 'plugins.pubIds.ark.manager.settings.arkIssueSuffixPatternRequired', function($arkIssueSuffixPattern) use ($form) {
@@ -76,6 +76,10 @@ class ARKSettingsForm extends Form {
         }));
         $this->addCheck(new FormValidatorCustom($this, 'arkSubmissionSuffixPattern', 'required', 'plugins.pubIds.ark.manager.settings.arkSubmissionSuffixPatternRequired', function($arkSubmissionSuffixPattern) use ($form) {
             if ($form->getData('arkSuffix') == 'pattern' && $form->getData('enableSubmissionARK')) return $arkSubmissionSuffixPattern != '';
+            return true;
+        }));
+        $this->addCheck(new FormValidatorCustom($this, 'arkPublicationSuffixPattern', 'required', 'plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired', function($arkPublicationSuffixPattern) use ($form) {
+            if ($form->getData('arkSuffix') == 'pattern' && $form->getData('enablePublicationARK')) return $arkPublicationSuffixPattern != '';
             return true;
         }));
         $this->addCheck(new FormValidatorCustom($this, 'arkRepresentationSuffixPattern', 'required', 'plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired', function($arkRepresentationSuffixPattern) use ($form) {
@@ -146,11 +150,13 @@ class ARKSettingsForm extends Form {
         return array(
             'enableIssueARK' => 'bool',
             'enableSubmissionARK' => 'bool',
+            'enablePublicationARK' => 'bool',
             'enableRepresentationARK' => 'bool',
             'arkPrefix' => 'string',
             'arkSuffix' => 'string',
             'arkIssueSuffixPattern' => 'string',
             'arkSubmissionSuffixPattern' => 'string',
+            'arkPublicationSuffixPattern' => 'string',
             'arkRepresentationSuffixPattern' => 'string',
             'arkResolver' => 'string',
         );
