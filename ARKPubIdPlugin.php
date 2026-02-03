@@ -155,17 +155,18 @@ class ARKPubIdPlugin extends PubIdPlugin {
         
         $request = Application::get()->getRequest();
         $userVars = $request->getUserVars();
-        $userVars['pubIdPlugIn'] = get_class($this);
+        $className = (new \ReflectionClass($this))->getShortName();
+        $userVars['pubIdPlugIn'] = $className;
         
         // Clear object pub id
         $linkActions['clearPubIdLinkActionARK'] = new LinkAction(
             'clearPubId',
             new RemoteActionConfirmationModal(
-                $request,
+                $request->getSession(),
                 __('plugins.pubIds.ark.editor.clearObjectsARK.confirm'),
                 __('common.delete'),
                 $request->url(null, null, 'clearPubId', null, $userVars),
-                'modal_delete'
+                'negative'
             ),
             __('plugins.pubIds.ark.editor.clearObjectsARK'),
             'delete',
@@ -177,11 +178,11 @@ class ARKPubIdPlugin extends PubIdPlugin {
             $linkActions['clearIssueObjectsPubIdsLinkActionARK'] = new LinkAction(
                 'clearObjectsPubIds',
                 new RemoteActionConfirmationModal(
-                    $request,
+                    $request->getSession(),
                     __('plugins.pubIds.ark.editor.clearIssueObjectsARK.confirm'),
                     __('common.delete'),
                     $request->url(null, null, 'clearIssueObjectsPubIds', null, $userVars),
-                    'modal_delete'
+                    'negative'
                 ),
                 __('plugins.pubIds.ark.editor.clearIssueObjectsARK'),
                 'delete',
@@ -235,7 +236,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
             return 'Submission';
         } elseif ($pubObject instanceof \APP\publication\Publication) {
             return 'Publication';
-        } elseif ($pubObject instanceof \APP\submission\Representation) {
+        } elseif ($pubObject instanceof \PKP\submission\Representation) {
             return 'Representation';
         }
         return '';

@@ -9,7 +9,11 @@
 
 {assign var=pubObjectType value=$pubIdPlugin->getPubObjectType($pubObject)}
 
-{assign var=contextId value=$pubObject->getData('contextId')}
+{if $currentContext}
+	{assign var=contextId value=$currentContext->getId()}
+{else}
+	{assign var=contextId value=$pubObject->getData('contextId')}
+{/if}
 {assign var=enableObjectARK value=$pubIdPlugin->isObjectTypeEnabled($pubObjectType, $contextId)}
 
 {if $enableObjectARK}
