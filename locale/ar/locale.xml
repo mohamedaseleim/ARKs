@@ -12,6 +12,7 @@
 	<message key="plugins.pubIds.ark.manager.settings.explainARKs">يرجى تحديد كائنات النشر التي سيتم تعيين مفتاح الموارد الأرشيفية (ARK) لها:</message>
 	<message key="plugins.pubIds.ark.manager.settings.enableIssueARK">الأعداد</message>
 	<message key="plugins.pubIds.ark.manager.settings.enableSubmissionARK">المقالات</message>
+	<message key="plugins.pubIds.ark.manager.settings.enablePublicationARK">المنشورات</message>
 	<message key="plugins.pubIds.ark.manager.settings.enableRepresentationARK">الملفات الطباعية (Galleys)</message>
 
 	<message key="plugins.pubIds.ark.manager.settings.arkPrefix">بادئة ARK</message>
@@ -24,12 +25,14 @@
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.example">على سبيل المثال، النمط vol%viss%ipp%p قد ينشئ لاحقة ARK بالشكل "vol3iss2pp230".</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.issues">للأعداد</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.submissions">للمقالات</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.publications">للمنشورات</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixPattern.representations">للملفات الطباعية</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkIssueSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للأعداد.</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSubmissionSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للمقالات.</message>
+	<message key="plugins.pubIds.ark.manager.settings.arkPublicationSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للمنشورات.</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkRepresentationSuffixPatternRequired">يرجى إدخال نمط لاحقة ARK للملفات الطباعية.</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixDefault">استخدام الأنماط الافتراضية.</message>
-	<message key="plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"><![CDATA[%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.g%g للملفات الطباعية.]]></message>
+	<message key="plugins.pubIds.ark.manager.settings.arkSuffixDefault.description"><![CDATA[%j.v%vi%i للأعداد<br />%j.v%vi%i.%a للمقالات<br />%j.v%vi%i.%a.p%p للمنشورات<br />%j.v%vi%i.%a.g%g للملفات الطباعية.]]></message>
 	<message key="plugins.pubIds.ark.manager.settings.arkSuffixCustomIdentifier">إدخال لاحقة ARK فردية لكل عنصر منشور. ستجد حقل إدخال ARK إضافي في صفحة البيانات الوصفية لكل عنصر.</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkResolver">رابط المُحلل (Resolver URL)</message>
 	<message key="plugins.pubIds.ark.manager.settings.arkResolver.description">(مثال: https://n2t.net/)</message>
