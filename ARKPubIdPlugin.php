@@ -156,7 +156,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
         $request = Application::get()->getRequest();
         $userVars = $request->getUserVars();
         $classNameParts = explode('\\', get_class($this));
-        $userVars['pubIdPlugIn'] = end($classNameParts);
+        $userVars['pubIdPlugIn'] = array_slice($classNameParts, -1)[0];
         
         // Clear object pub id
         $linkActions['clearPubIdLinkActionARK'] = new LinkAction(
