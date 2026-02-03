@@ -155,7 +155,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
         
         $request = Application::get()->getRequest();
         $userVars = $request->getUserVars();
-        $className = basename(str_replace('\\', '/', get_class($this)));
+        $className = (new \ReflectionClass($this))->getShortName();
         $userVars['pubIdPlugIn'] = $className;
         
         // Clear object pub id
