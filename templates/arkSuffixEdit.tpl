@@ -9,7 +9,12 @@
 {load_script context="publicIdentifiersForm" scripts=$scripts}
 
 {assign var=pubObjectType value=$pubIdPlugin->getPubObjectType($pubObject)}
-{assign var=enableObjectARK value=$pubIdPlugin->isObjectTypeEnabled($pubObjectType, $currentContext->getId())}
+{if $currentContext}
+	{assign var=contextId value=$currentContext->getId()}
+{else}
+	{assign var=contextId value=$pubObject->getData('contextId')}
+{/if}
+{assign var=enableObjectARK value=$pubIdPlugin->isObjectTypeEnabled($pubObjectType, $contextId)}
 
 {if $enableObjectARK}
 	{assign var=storedPubId value=$pubObject->getStoredPubId($pubIdPlugin->getPubIdType())}
@@ -21,7 +26,7 @@
 		
 		{assign var=formArea value=true}
 		
-		{if $pubIdPlugin->getSetting($currentContext->getId(), 'arkSuffix') == 'customId' || $storedPubId}
+		{if $pubIdPlugin->getSetting($contextId, 'arkSuffix') == 'customId' || $storedPubId}
 			
 			{if empty($storedPubId)} 
 				
@@ -34,7 +39,7 @@
 						</label>
 						<input type="text" 
 							   disabled="disabled" 
-							   value="{$pubIdPlugin->getSetting($currentContext->getId(), 'arkPrefix')|escape}" 
+							   value="{$pubIdPlugin->getSetting($contextId, 'arkPrefix')|escape}" 
 							   class="pkp_form_control" 
 							   style="display: inline-block; width: 48%; margin-right: 2%;">
 					
@@ -92,8 +97,8 @@
 {/if}
 
 {if $pubObjectType == 'Issue'}
-	{assign var=enableSubmissionARK value=$pubIdPlugin->getSetting($currentContext->getId(), "enableSubmissionARK")}
-	{assign var=enableRepresentationARK value=$pubIdPlugin->getSetting($currentContext->getId(), "enableRepresentationARK")}
+	{assign var=enableSubmissionARK value=$pubIdPlugin->getSetting($contextId, "enableSubmissionARK")}
+	{assign var=enableRepresentationARK value=$pubIdPlugin->getSetting($contextId, "enableRepresentationARK")}
 	
 	{if $enableSubmissionARK || $enableRepresentationARK}
 		{if !$formArea}

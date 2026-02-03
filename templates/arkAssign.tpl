@@ -9,7 +9,12 @@
 
 {assign var=pubObjectType value=$pubIdPlugin->getPubObjectType($pubObject)}
 
-{assign var=enableObjectARK value=$pubIdPlugin->isObjectTypeEnabled($pubObjectType, $currentContext->getId())}
+{if $currentContext}
+    {assign var=contextId value=$currentContext->getId()}
+{else}
+    {assign var=contextId value=$pubObject->getData('contextId')}
+{/if}
+{assign var=enableObjectARK value=$pubIdPlugin->isObjectTypeEnabled($pubObjectType, $contextId)}
 
 {if $enableObjectARK}
     <div class="pkp_form_section" id="pubIdARKFormArea">
