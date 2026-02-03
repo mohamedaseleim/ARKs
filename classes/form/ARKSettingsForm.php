@@ -93,15 +93,15 @@ class ARKSettingsForm extends Form {
         // for ARK reset requests
         // LinkAction imports are handled at the top of the file via 'use'
         $request = Application::get()->getRequest();
-        
+
         $this->setData('clearPubIdsLinkAction', new LinkAction(
             'reassignARKs',
             new RemoteActionConfirmationModal(
-                $request,
+                $request->getSession(),
                 __('plugins.pubIds.ark.manager.settings.arkReassign.confirm'),
                 __('common.delete'),
                 $request->url(null, null, 'manage', null, array('verb' => 'clearPubIds', 'plugin' => $plugin->getName(), 'category' => 'pubIds')),
-                'modal_delete'
+                'negative'
             ),
             __('plugins.pubIds.ark.manager.settings.arkReassign'),
             'delete'
