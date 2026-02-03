@@ -66,7 +66,7 @@ class ARKSettingsForm extends Form {
         parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
 
         $form = $this;
-        $this->addCheck(new FormValidatorCustom($this, 'arkObjects', 'required', 'plugins.pubIds.ark.manager.settings.arkObjectsRequired', function($enableIssueARK) use ($form) {
+        $this->addCheck(new FormValidatorCustom($this, 'enableIssueARK', 'optional', 'plugins.pubIds.ark.manager.settings.arkObjectsRequired', function($enableIssueARK) use ($form) {
             return $form->getData('enableIssueARK') || $form->getData('enableSubmissionARK') || $form->getData('enablePublicationARK') || $form->getData('enableRepresentationARK');
         }));
         $this->addCheck(new FormValidatorRegExp($this, 'arkPrefix', 'required', 'plugins.pubIds.ark.manager.settings.form.arkPrefixPattern', '/^ark:\/[0123456789bcdfghjkmnpqrstvwxz]{1,16}$/'));
