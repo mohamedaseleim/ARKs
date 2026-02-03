@@ -161,7 +161,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
         $linkActions['clearPubIdLinkActionARK'] = new LinkAction(
             'clearPubId',
             new RemoteActionConfirmationModal(
-                $request->getSession(),
+                $request,
                 __('plugins.pubIds.ark.editor.clearObjectsARK.confirm'),
                 __('common.delete'),
                 $request->url(null, null, 'clearPubId', null, $userVars),
@@ -177,7 +177,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
             $linkActions['clearIssueObjectsPubIdsLinkActionARK'] = new LinkAction(
                 'clearObjectsPubIds',
                 new RemoteActionConfirmationModal(
-                    $request->getSession(),
+                    $request,
                     __('plugins.pubIds.ark.editor.clearIssueObjectsARK.confirm'),
                     __('common.delete'),
                     $request->url(null, null, 'clearIssueObjectsPubIds', null, $userVars),

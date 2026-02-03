@@ -97,7 +97,7 @@ class ARKSettingsForm extends Form {
         $this->setData('clearPubIdsLinkAction', new LinkAction(
             'reassignARKs',
             new RemoteActionConfirmationModal(
-                $request->getSession(),
+                $request,
                 __('plugins.pubIds.ark.manager.settings.arkReassign.confirm'),
                 __('common.delete'),
                 $request->url(null, null, 'manage', null, array('verb' => 'clearPubIds', 'plugin' => $plugin->getName(), 'category' => 'pubIds')),
