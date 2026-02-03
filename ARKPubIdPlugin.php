@@ -172,7 +172,7 @@ class ARKPubIdPlugin extends PubIdPlugin {
             __('plugins.pubIds.ark.editor.clearObjectsARK')
         );
 
-        if (is_a($pubObject, 'APP\issue\Issue')) {
+        if ($pubObject instanceof \APP\issue\Issue) {
             // Clear issue objects pub ids
             $linkActions['clearIssueObjectsPubIdsLinkActionARK'] = new LinkAction(
                 'clearObjectsPubIds',
@@ -229,13 +229,13 @@ class ARKPubIdPlugin extends PubIdPlugin {
      * @copydoc PKPPubIdPlugin::getPubObjectType()
      */
     public function getPubObjectType($pubObject): string {
-        if (is_a($pubObject, 'APP\issue\Issue')) {
+        if ($pubObject instanceof \APP\issue\Issue) {
             return 'Issue';
-        } elseif (is_a($pubObject, 'APP\submission\Submission')) {
+        } elseif ($pubObject instanceof \APP\submission\Submission) {
             return 'Submission';
-        } elseif (is_a($pubObject, 'APP\publication\Publication')) {
+        } elseif ($pubObject instanceof \APP\publication\Publication) {
             return 'Publication';
-        } elseif (is_a($pubObject, 'APP\submission\Representation')) {
+        } elseif ($pubObject instanceof \APP\submission\Representation) {
             return 'Representation';
         }
         return '';
